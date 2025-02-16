@@ -108,8 +108,20 @@
                     const img = document.createElement('img');
                     img.src = e.target.result;
                     const preview = document.getElementById('imagePreview');
-                    preview.innerHTML = '';
+                    preview.style.width = '100%';
+                    preview.style.height = '250px';  // Set a fixed height
+                    preview.style.overflow = 'hidden';
+                    preview.style.border = '1px solid #ddd';
+                    preview.style.display = 'flex';
+                    preview.style.alignItems = 'center';
+                    preview.style.justifyContent = 'center';
+
+                    img.style.maxWidth = '100%';
+                    img.style.maxHeight = '100%';
+                    img.style.objectFit = 'contain'; // Prevents distortion
+                    preview.innerHTML = '';  
                     preview.appendChild(img);
+
                 }
                 reader.readAsDataURL(file);
             }
